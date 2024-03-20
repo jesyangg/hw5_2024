@@ -1,12 +1,16 @@
+
+/* Set font to Poppins with serif as backup */
 *{
     font-family: "Poppins", sans-serif;
   }
 
+/* Set background image, with backup color */
   body {
     background-image: url('/images/concrete_seamless.png');
     background-color: #f1f1f1;
   }
 
+  /* Animate logo with keyframes */
   @keyframes mymove {
   from {
     width: 25px;
@@ -27,6 +31,12 @@
     animation-fill-mode: forwards; 
   }
 
+
+
+
+/* MOBILE FIRST APPROACH */
+
+  /* Modify the header and navigation links to use flex, arranged in a column */
   header {
     display: flex;
     align-items: center;
@@ -38,26 +48,27 @@
     flex-direction: column;
   }
 
-
+  /* Nav links stay the same color after they've been visited */
   .nav_links li a:visited {
     color: #0000EE;
   }
 
 
+  /* Styling ONLY header elements that are direct children of .card */
   .card > header {
     background: #288088;
     border: 2px solid #45ADAD;
     padding: 20px 0;
     border-radius: 50px 50px 0 0;
-
 }
 
-
+/* Adjusting border-radius of .card so no white corners appear behind the card headers */
 .card {
     flex: 0 0 450px; 
     border-radius: 50px 50px 0 0;
 }
 
+/* Cards appear in a single column using flex */
 .pricing {
     display: flex;
     flex-direction: column;
@@ -65,11 +76,11 @@
    padding: 0 70px;
 }
 
+/* Styling photo gallery */
 .gallery img {
     border: 10px solid #50C7C7;
     margin: 10px;
     width: 300px;
-
 }
 
 .gallery {
@@ -80,52 +91,48 @@
 }
 
 
+/* MEDIA QUERY: GREATER THAN 900px */
 
+@media only screen and (min-width: 901px) {
 
-
-
-@media only screen and (min-width: 900px) {
-
+/* Header and navigation appears in a row instead of column */
   header {
     display: flex;
     align-items: center;
     flex-direction: row;
-    justify-content:space-between;
+    justify-content: space-between;
   }
-
-  
-
 
   .nav_links {
     display: flex;
     flex-direction: row;
   }
+
+/* Setting initial size for .pricing and .card */
   .pricing, .card {
     flex-basis: 275px;
-    
 }
 
+/* Arranging pricing cards into a row instead of column */
 .pricing {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
    padding: 0;
-
   }
 
+/* Sticky navigation bar */
 body > header:first-of-type {
     width: 100%;
     top: 0;
     z-index: 1000;
-    
   }
 
 }
 
 
-
-
+/* REDUCED MOTION MEDIA QUERY - no animation */
 @media (prefers-reduced-motion) {
    #logo {
     animation-duration: 0s;
@@ -133,57 +140,47 @@ body > header:first-of-type {
 }
 
 
+/* PRINT VIEW MEDIA QUERY */
 @media print {
 
-
+/* Set body font to Arial with backup */
     body {
         font-family: Arial, Helvetica, sans-serif;
         background-image: none;
-
     }
 
+/* Hide the gallery */
     #gallery, .gallery {
         display: none; 
     }
 
+/* Styling card elements, set initial width */
     .card {
         border: 2px solid #45ADDD;
         flex-basis: 325px; 
-
     }
 
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+/* Spread apart navigation items */
+nav {
+    width: 100%
+}
 
+     .nav_links {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-evenly;
         }
 
+/* Display pricing cards in a row instead of column */
     .pricing {
         display: flex;
         flex-direction: row;
     }
 
-
-    nav {
-        width: 100%
-    }
-
-    .nav_links {
-        display: flex;
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-evenly;
-    }
-
-
- 
+/* Add thumbs up emoji after every second child in an unordered list - in the pricing class only */
   .pricing ul li:nth-child(2)::after {
   content: '👍';
-
-
 }
-
-
 
 }
