@@ -62,9 +62,9 @@
     border-radius: 50px 50px 0 0;
 }
 
-/* Adjusting border-radius of .card so no white corners appear behind the card headers */
+/* Adjusting border-radius of .card, specifying initial width */
 .card {
-    flex: 0 0 450px; 
+    flex-basis: 450px; 
     border-radius: 50px 50px 0 0;
 }
 
@@ -73,7 +73,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-   padding: 0 70px;
+   padding: 0 80px;
 }
 
 /* Styling photo gallery */
@@ -87,7 +87,6 @@
     display: flex;
     flex-wrap: wrap; 
     justify-content: center; 
-
 }
 
 
@@ -128,7 +127,6 @@ body > header:first-of-type {
     top: 0;
     z-index: 1000;
   }
-
 }
 
 
@@ -154,6 +152,13 @@ body > header:first-of-type {
         display: none; 
     }
 
+    /* Display pricing cards in a row instead of column */
+    .pricing {
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+    }
+
 /* Styling card elements, set initial width */
     .card {
         border: 2px solid #45ADDD;
@@ -172,11 +177,7 @@ nav {
         justify-content: space-evenly;
         }
 
-/* Display pricing cards in a row instead of column */
-    .pricing {
-        display: flex;
-        flex-direction: row;
-    }
+
 
 /* Add thumbs up emoji after every second child in an unordered list - in the pricing class only */
   .pricing ul li:nth-child(2)::after {
